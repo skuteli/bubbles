@@ -1,0 +1,36 @@
+<html>
+  <head>
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+      <title>Oskar Skuteli</title>
+      <meta name='Description' content='Oskar Skuteli'/>
+      <meta name='Keywords' content='Oskar Skuteli'/>
+      <meta name='Author' content='Oskar Skuteli'/>
+      <script type="text/javascript" src="acorn/acorn.js"></script>
+      <script type="text/javascript" src="acorn/walk.js"></script>
+      <script type="text/javascript" src="bubbleSet.js"></script>
+      <script type="text/javascript" src="parser.js"></script>
+      <script type="text/javascript">
+      window.onload = function(){
+          parser = new Parser
+          var run = function() {
+            var parsedInput = parser.parse(document.getElementById("inputArea").value)
+            document.getElementById("output").innerHTML = parsedInput.toHTML()
+          }
+          document.getElementById("parseButton").onclick = run
+
+      }
+      </script>
+      <style>
+            p.bubbledCode {white-space: pre;}
+            bubble {color:red;}
+            bubble bubble {color:blue;}
+            bubble bubble bubble {color:green;}
+            bubble bubble bubble bubble {color:yellow;}
+      </style>
+  </head>
+  <body>
+    <textarea id="inputArea"></textarea>
+    <button id="parseButton">Parse</button>
+    <p class="bubbledCode" id="output"></p>
+  </body>
+</html>
